@@ -7,6 +7,7 @@ class A {
  public:
   ~A() { cout << "A::~A()\n\n" << endl; }
   virtual void f() { cout << "A::f()" << endl; }
+  void g() { cout << "A::g()" << endl; }
 };
 
 class B : public A {
@@ -32,8 +33,15 @@ class B : public A {
 int main() {
   B *b = new B();
   b->f();
+  b->g();
   A *a = b;
+  // delete without shared_ptr
+  cout << "delete without shared_ptr" << endl;
   delete a;
+  // delete with shared_ptr
+  cout << "delete with shared_ptr" << endl;
   shared_ptr<A> s_a = std::make_shared<B>();
+  s_a->f();
+  s_a->g();
   return 0;
 }
