@@ -52,11 +52,12 @@ add_library(
   src/asio_test/asio_test.hpp # header file
   src/language_practice/lp.cpp # implementation file
   src/language_practice/lp.hpp # header file
+  src/language_practice/some_ds.hpp # header file and only
 )
 
 target_include_directories(
   pg_lib PUBLIC # PUBLIC=自己也要、link 進來的人也要
-                ${CMAKE_CURRENT_SOURCE_DIR}/src/playground)
+                ${CMAKE_CURRENT_SOURCE_DIR}/src/language_practice)
 
 target_link_libraries(
   pg_lib
@@ -77,7 +78,7 @@ endforeach()
 
 foreach(bin IN LISTS BINARYS)
   target_include_directories(
-    ${bin} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/playground
+    ${bin} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/language_practice
                    ${CMAKE_CURRENT_SOURCE_DIR}/src/asio_test)
   # 設定每個執行檔的 C++ 標準
   target_compile_features(${bin} PRIVATE cxx_std_${CMAKE_CXX_STANDARD})

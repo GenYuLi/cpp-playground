@@ -1,17 +1,22 @@
 [
 {
   "directory": "/home/witherslin/cpp/cpp-playground/build",
-  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -I/home/witherslin/cpp/cpp-playground/src/playground -I/home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/include -I/home/witherslin/cpp/cpp-playground/build/_deps/json-src/include -std=c++23 -o CMakeFiles/pg_lib.dir/src/asio_test/asio_test.cpp.o -c /home/witherslin/cpp/cpp-playground/src/asio_test/asio_test.cpp",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -I/home/witherslin/cpp/cpp-playground/src/language_practice -I/home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/include -I/home/witherslin/cpp/cpp-playground/build/_deps/json-src/include -std=c++23 -o CMakeFiles/pg_lib.dir/src/asio_test/asio_test.cpp.o -c /home/witherslin/cpp/cpp-playground/src/asio_test/asio_test.cpp",
   "file": "/home/witherslin/cpp/cpp-playground/src/asio_test/asio_test.cpp"
 },
 {
   "directory": "/home/witherslin/cpp/cpp-playground/build",
-  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -I/home/witherslin/cpp/cpp-playground/src/playground -I/home/witherslin/cpp/cpp-playground/src/asio_test -I/home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/include -I/home/witherslin/cpp/cpp-playground/build/_deps/json-src/include -std=c++23 -o CMakeFiles/asio_test_bin.dir/src/bin/asio_test_bin.cpp.o -c /home/witherslin/cpp/cpp-playground/src/bin/asio_test_bin.cpp",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -I/home/witherslin/cpp/cpp-playground/src/language_practice -I/home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/include -I/home/witherslin/cpp/cpp-playground/build/_deps/json-src/include -std=c++23 -o CMakeFiles/pg_lib.dir/src/language_practice/lp.cpp.o -c /home/witherslin/cpp/cpp-playground/src/language_practice/lp.cpp",
+  "file": "/home/witherslin/cpp/cpp-playground/src/language_practice/lp.cpp"
+},
+{
+  "directory": "/home/witherslin/cpp/cpp-playground/build",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -I/home/witherslin/cpp/cpp-playground/src/language_practice -I/home/witherslin/cpp/cpp-playground/src/asio_test -I/home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/include -I/home/witherslin/cpp/cpp-playground/build/_deps/json-src/include -std=c++23 -o CMakeFiles/asio_test_bin.dir/src/bin/asio_test_bin.cpp.o -c /home/witherslin/cpp/cpp-playground/src/bin/asio_test_bin.cpp",
   "file": "/home/witherslin/cpp/cpp-playground/src/bin/asio_test_bin.cpp"
 },
 {
   "directory": "/home/witherslin/cpp/cpp-playground/build",
-  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -I/home/witherslin/cpp/cpp-playground/src/playground -I/home/witherslin/cpp/cpp-playground/src/asio_test -I/home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/include -I/home/witherslin/cpp/cpp-playground/build/_deps/json-src/include -std=c++23 -o CMakeFiles/lp.dir/src/bin/lp.cpp.o -c /home/witherslin/cpp/cpp-playground/src/bin/lp.cpp",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -I/home/witherslin/cpp/cpp-playground/src/language_practice -I/home/witherslin/cpp/cpp-playground/src/asio_test -I/home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/include -I/home/witherslin/cpp/cpp-playground/build/_deps/json-src/include -std=c++23 -o CMakeFiles/lp.dir/src/bin/lp.cpp.o -c /home/witherslin/cpp/cpp-playground/src/bin/lp.cpp",
   "file": "/home/witherslin/cpp/cpp-playground/src/bin/lp.cpp"
 },
 {
