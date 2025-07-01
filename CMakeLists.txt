@@ -50,8 +50,8 @@ add_library(
   pg_lib # target name
   src/asio_test/asio_test.cpp # implementation file
   src/asio_test/asio_test.hpp # header file
-  src/language_practice/lp.cpp # implementation file
-  src/language_practice/lp.hpp # header file
+  src/language_practice/const_value.cpp # implementation file
+  src/language_practice/const_value.hpp # header file
   src/language_practice/some_ds.hpp # header file and only
 )
 
