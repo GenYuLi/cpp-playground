@@ -37,7 +37,9 @@ struct Drawable {
 };
 
 struct Circle : Drawable<Circle> {
-  void draw_impl() { /* ... */ }
+  void draw_impl() { 
+    cout << "Circle::draw_impl()" << endl;
+  }
   ~Circle() { cout << "Circle::~Circle()" << endl; }
 };
 
@@ -76,6 +78,7 @@ int main() {
   heap.push(1, 10);
   heap.push(2, 20);
   shared_ptr<Drawable<Circle>> a_ptr = make_shared<Circle>();
+  a_ptr->draw();
   CrtpPtr<Circle> circle_ptr{new Circle()};
   cout << "Heap size: " << heap.size() << endl;
   cout << "heap peek: " << heap.top() << endl;

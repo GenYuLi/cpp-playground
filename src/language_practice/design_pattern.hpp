@@ -27,7 +27,6 @@ class Lock {
     mt_.unlock();
   }
 };
-
 void do_raii_work() {
   std::mutex mt;
   try {

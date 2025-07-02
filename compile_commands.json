@@ -20,6 +20,26 @@
   "file": "/home/witherslin/cpp/cpp-playground/src/bin/lp.cpp"
 },
 {
+  "directory": "/home/witherslin/cpp/cpp-playground/build",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -I/home/witherslin/cpp/cpp-playground/src/language_practice -I/home/witherslin/cpp/cpp-playground/src/asio_test -I/home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/include -I/home/witherslin/cpp/cpp-playground/build/_deps/json-src/include -std=c++23 -o CMakeFiles/nrvo.dir/src/bin/nrvo.cpp.o -c /home/witherslin/cpp/cpp-playground/src/bin/nrvo.cpp",
+  "file": "/home/witherslin/cpp/cpp-playground/src/bin/nrvo.cpp"
+},
+{
+  "directory": "/home/witherslin/cpp/cpp-playground/build",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -I/home/witherslin/cpp/cpp-playground/src/language_practice -I/home/witherslin/cpp/cpp-playground/src/asio_test -I/home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/include -I/home/witherslin/cpp/cpp-playground/build/_deps/json-src/include -std=c++23 -o CMakeFiles/pack.dir/src/bin/pack.cpp.o -c /home/witherslin/cpp/cpp-playground/src/bin/pack.cpp",
+  "file": "/home/witherslin/cpp/cpp-playground/src/bin/pack.cpp"
+},
+{
+  "directory": "/home/witherslin/cpp/cpp-playground/build",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -I/home/witherslin/cpp/cpp-playground/src/language_practice -I/home/witherslin/cpp/cpp-playground/src/asio_test -I/home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/include -I/home/witherslin/cpp/cpp-playground/build/_deps/json-src/include -std=c++23 -o CMakeFiles/placement_new.dir/src/bin/placement_new.cpp.o -c /home/witherslin/cpp/cpp-playground/src/bin/placement_new.cpp",
+  "file": "/home/witherslin/cpp/cpp-playground/src/bin/placement_new.cpp"
+},
+{
+  "directory": "/home/witherslin/cpp/cpp-playground/build",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -I/home/witherslin/cpp/cpp-playground/src/language_practice -I/home/witherslin/cpp/cpp-playground/src/asio_test -I/home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/include -I/home/witherslin/cpp/cpp-playground/build/_deps/json-src/include -std=c++23 -o CMakeFiles/type_erase.dir/src/bin/type_erase.cpp.o -c /home/witherslin/cpp/cpp-playground/src/bin/type_erase.cpp",
+  "file": "/home/witherslin/cpp/cpp-playground/src/bin/type_erase.cpp"
+},
+{
   "directory": "/home/witherslin/cpp/cpp-playground/build/_deps/fmt-build",
   "command": "/usr/bin/c++  -I/home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/include -std=c++23 -o CMakeFiles/fmt.dir/src/format.cc.o -c /home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/src/format.cc",
   "file": "/home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/src/format.cc"
