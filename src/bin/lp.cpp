@@ -27,12 +27,29 @@ class B : public A {
 //      B::f -> override A::f
 //    }
 //  }
-//
-//
-//
-//
 
-int main() {
+template <class D>
+struct Drawable {
+  void draw() {  // 靜態多型
+    static_cast<D *>(this)->draw_impl();
+  }
+  ~Drawable() { cout << "Drawable::~Drawable()" << endl; }
+};
+
+struct Circle : Drawable<Circle> {
+  void draw_impl() { /* ... */ }
+  ~Circle() { cout << "Circle::~Circle()" << endl; }
+};
+
+template <class D>
+struct CrtpDeleter {
+  void operator()(Drawable<D> *p) const noexcept { delete static_cast<D *>(p); }
+};
+
+template <typename D>
+using CrtpPtr = std::unique_ptr<Drawable<D>, CrtpDeleter<D>>;
+
+int test_class_derive() {
   B *b = new B();
   b->f();
   b->g();
@@ -45,5 +62,27 @@ int main() {
   shared_ptr<A> s_a = std::make_shared<B>();
   s_a->f();
   s_a->g();
+  return 0;
+}
+
+template <class T>
+void swap_nothrow(T &a, T &b) noexcept(noexcept(std::move(a)) &&  // 移動建構子
+                                       noexcept(a.swap(b))        // ADL swap
+);
+
+int main() {
+  using cmp = decltype([](int a, int b) { return a > b; });
+  FixedBinaryHeap<int, int, 200, cmp> heap;
+  heap.push(1, 10);
+  heap.push(2, 20);
+  shared_ptr<Drawable<Circle>> a_ptr = make_shared<Circle>();
+  CrtpPtr<Circle> circle_ptr{new Circle()};
+  cout << "Heap size: " << heap.size() << endl;
+  cout << "heap peek: " << heap.top() << endl;
+
+  int a = 1, b = 2;
+  // compiler error
+  // swap_nothrow(a, b);
+
   return 0;
 }

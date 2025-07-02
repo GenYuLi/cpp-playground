@@ -1,32 +1,32 @@
 [
 {
-  "directory": "/playground/cpp_pg/cpp-playground/build",
-  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -I/playground/cpp_pg/cpp-playground/src/language_practice -I/playground/cpp_pg/cpp-playground/build/_deps/fmt-src/include -I/playground/cpp_pg/cpp-playground/build/_deps/json-src/include -std=c++23 -o CMakeFiles/pg_lib.dir/src/asio_test/asio_test.cpp.o -c /playground/cpp_pg/cpp-playground/src/asio_test/asio_test.cpp",
-  "file": "/playground/cpp_pg/cpp-playground/src/asio_test/asio_test.cpp"
+  "directory": "/home/witherslin/cpp/cpp-playground/build",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -I/home/witherslin/cpp/cpp-playground/src/asio_test -I/home/witherslin/cpp/cpp-playground/src/language_practice -I/home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/include -I/home/witherslin/cpp/cpp-playground/build/_deps/json-src/include -std=c++23 -o CMakeFiles/pg_lib.dir/src/asio_test/asio_test.cpp.o -c /home/witherslin/cpp/cpp-playground/src/asio_test/asio_test.cpp",
+  "file": "/home/witherslin/cpp/cpp-playground/src/asio_test/asio_test.cpp"
 },
 {
-  "directory": "/playground/cpp_pg/cpp-playground/build",
-  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -I/playground/cpp_pg/cpp-playground/src/language_practice -I/playground/cpp_pg/cpp-playground/build/_deps/fmt-src/include -I/playground/cpp_pg/cpp-playground/build/_deps/json-src/include -std=c++23 -o CMakeFiles/pg_lib.dir/src/language_practice/const_value.cpp.o -c /playground/cpp_pg/cpp-playground/src/language_practice/const_value.cpp",
-  "file": "/playground/cpp_pg/cpp-playground/src/language_practice/const_value.cpp"
+  "directory": "/home/witherslin/cpp/cpp-playground/build",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -I/home/witherslin/cpp/cpp-playground/src/asio_test -I/home/witherslin/cpp/cpp-playground/src/language_practice -I/home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/include -I/home/witherslin/cpp/cpp-playground/build/_deps/json-src/include -std=c++23 -o CMakeFiles/pg_lib.dir/src/language_practice/const_value.cpp.o -c /home/witherslin/cpp/cpp-playground/src/language_practice/const_value.cpp",
+  "file": "/home/witherslin/cpp/cpp-playground/src/language_practice/const_value.cpp"
 },
 {
-  "directory": "/playground/cpp_pg/cpp-playground/build",
-  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -I/playground/cpp_pg/cpp-playground/src/language_practice -I/playground/cpp_pg/cpp-playground/src/asio_test -I/playground/cpp_pg/cpp-playground/build/_deps/fmt-src/include -I/playground/cpp_pg/cpp-playground/build/_deps/json-src/include -std=c++23 -o CMakeFiles/asio_test_bin.dir/src/bin/asio_test_bin.cpp.o -c /playground/cpp_pg/cpp-playground/src/bin/asio_test_bin.cpp",
-  "file": "/playground/cpp_pg/cpp-playground/src/bin/asio_test_bin.cpp"
+  "directory": "/home/witherslin/cpp/cpp-playground/build",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -I/home/witherslin/cpp/cpp-playground/src/language_practice -I/home/witherslin/cpp/cpp-playground/src/asio_test -I/home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/include -I/home/witherslin/cpp/cpp-playground/build/_deps/json-src/include -std=c++23 -o CMakeFiles/asio_test_bin.dir/src/bin/asio_test_bin.cpp.o -c /home/witherslin/cpp/cpp-playground/src/bin/asio_test_bin.cpp",
+  "file": "/home/witherslin/cpp/cpp-playground/src/bin/asio_test_bin.cpp"
 },
 {
-  "directory": "/playground/cpp_pg/cpp-playground/build",
-  "command": "/usr/bin/c++ -DBOOST_SYSTEM_DYN_LINK -DBOOST_SYSTEM_NO_LIB -I/playground/cpp_pg/cpp-playground/src/language_practice -I/playground/cpp_pg/cpp-playground/src/asio_test -I/playground/cpp_pg/cpp-playground/build/_deps/fmt-src/include -I/playground/cpp_pg/cpp-playground/build/_deps/json-src/include -std=c++23 -o CMakeFiles/lp.dir/src/bin/lp.cpp.o -c /playground/cpp_pg/cpp-playground/src/bin/lp.cpp",
-  "file": "/playground/cpp_pg/cpp-playground/src/bin/lp.cpp"
+  "directory": "/home/witherslin/cpp/cpp-playground/build",
+  "command": "/usr/bin/c++ -DBOOST_ALL_NO_LIB -DBOOST_SYSTEM_DYN_LINK -I/home/witherslin/cpp/cpp-playground/src/language_practice -I/home/witherslin/cpp/cpp-playground/src/asio_test -I/home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/include -I/home/witherslin/cpp/cpp-playground/build/_deps/json-src/include -std=c++23 -o CMakeFiles/lp.dir/src/bin/lp.cpp.o -c /home/witherslin/cpp/cpp-playground/src/bin/lp.cpp",
+  "file": "/home/witherslin/cpp/cpp-playground/src/bin/lp.cpp"
 },
 {
-  "directory": "/playground/cpp_pg/cpp-playground/build/_deps/fmt-build",
-  "command": "/usr/bin/c++  -I/playground/cpp_pg/cpp-playground/build/_deps/fmt-src/include -std=c++23 -o CMakeFiles/fmt.dir/src/format.cc.o -c /playground/cpp_pg/cpp-playground/build/_deps/fmt-src/src/format.cc",
-  "file": "/playground/cpp_pg/cpp-playground/build/_deps/fmt-src/src/format.cc"
+  "directory": "/home/witherslin/cpp/cpp-playground/build/_deps/fmt-build",
+  "command": "/usr/bin/c++  -I/home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/include -std=c++23 -o CMakeFiles/fmt.dir/src/format.cc.o -c /home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/src/format.cc",
+  "file": "/home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/src/format.cc"
 },
 {
-  "directory": "/playground/cpp_pg/cpp-playground/build/_deps/fmt-build",
-  "command": "/usr/bin/c++  -I/playground/cpp_pg/cpp-playground/build/_deps/fmt-src/include -std=c++23 -o CMakeFiles/fmt.dir/src/os.cc.o -c /playground/cpp_pg/cpp-playground/build/_deps/fmt-src/src/os.cc",
-  "file": "/playground/cpp_pg/cpp-playground/build/_deps/fmt-src/src/os.cc"
+  "directory": "/home/witherslin/cpp/cpp-playground/build/_deps/fmt-build",
+  "command": "/usr/bin/c++  -I/home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/include -std=c++23 -o CMakeFiles/fmt.dir/src/os.cc.o -c /home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/src/os.cc",
+  "file": "/home/witherslin/cpp/cpp-playground/build/_deps/fmt-src/src/os.cc"
 }
 ]

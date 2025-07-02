@@ -44,20 +44,29 @@ FetchContent_MakeAvailable(json)
 
 find_package(Boost 1.74.0 REQUIRED COMPONENTS system)
 
-# --- 建立函式庫 ---
+# --- 建立函式庫和 header files link ---
 
-add_library(
-  pg_lib # target name
-  src/asio_test/asio_test.cpp # implementation file
-  src/asio_test/asio_test.hpp # header file
-  src/language_practice/const_value.cpp # implementation file
-  src/language_practice/const_value.hpp # header file
-  src/language_practice/some_ds.hpp # header file and only
-)
+file(GLOB_RECURSE PG_LIB_SOURCE_FILES CONFIGURE_DEPENDS src/asio_test/*.cpp
+     src/language_practice/*.cpp)
+
+file(
+  GLOB_RECURSE
+  PG_LIB_HEADER_FILES
+  CONFIGURE_DEPENDS
+  src/asio_test/*.hpp
+  src/asio_test/*.h
+  src/language_practice/*.hpp
+  src/language_practice/*.h)
+
+add_library(pg_lib ${PG_LIB_SOURCE_FILES})
+
+target_sources(pg_lib PRIVATE ${PG_LIB_HEADER_FILES})
 
 target_include_directories(
-  pg_lib PUBLIC # PUBLIC=自己也要、link 進來的人也要
-                ${CMAKE_CURRENT_SOURCE_DIR}/src/language_practice)
+  pg_lib
+  PUBLIC # PUBLIC=自己也要、link 進來的人也要
+         ${CMAKE_CURRENT_SOURCE_DIR}/src/asio_test
+         ${CMAKE_CURRENT_SOURCE_DIR}/src/language_practice)
 
 target_link_libraries(
   pg_lib
