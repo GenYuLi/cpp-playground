@@ -81,6 +81,34 @@ int printx(const char* fmt, ...) {
   va_end(ap);
   return printed;
 }
+// 1. The general, empty template
+template <typename T>
+struct C {};
+
+// 2. A specialization for 'int'
+template <>
+struct C<int> {
+  void say_hi(int) { puts("int hi"); }
+};
+
+// 3. A specialization for 'double'
+template <>
+struct C<double> {
+  void say_hi(double) { puts("double hi"); }
+};
+
+// 4. A specialization for 'char'
+template <>
+struct C<char> {
+  void say_hi(char) { puts("char hi"); }
+};
+
+// invalid
+// struct C<string> {
+// void say_hi(string) { puts("string hi"); }
+// }
+// // because <string> cannot use directly in template specialization
+// template<> is the syntax for explicit specialization.
 
 int main() {
   foo<int, double, string>();
