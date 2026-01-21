@@ -1,0 +1,50 @@
+# ClangFormat configuration
+# Use: clang-format -i <file>
+
+BasedOnStyle: Google
+Language: Cpp
+
+# Use tabs instead of spaces
+UseTab: Always
+TabWidth: 2
+IndentWidth: 2
+
+# Braces
+BreakBeforeBraces: Attach
+AllowShortBlocksOnASingleLine: Empty
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+
+# Line length
+ColumnLimit: 100
+
+# Includes
+SortIncludes: CaseSensitive
+IncludeBlocks: Regroup
+
+# Alignment
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+AlignOperands: Align
+AlignTrailingComments: true
+
+# Spacing
+SpaceAfterCStyleCast: false
+SpaceAfterTemplateKeyword: true
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeParens: ControlStatements
+SpacesInAngles: false
+SpacesInContainerLiterals: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+
+# Other
+PointerAlignment: Left
+DerivePointerAlignment: false
+FixNamespaceComments: true
+NamespaceIndentation: None
+
+# C++20 features
+Standard: c++20

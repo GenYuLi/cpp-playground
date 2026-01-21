@@ -1,8 +1,10 @@
 
 #pragma once
 #include <iostream>
-template<class T>
-void show(T x) { std::cout << x << '\n'; }
+template <class T>
+void show(T x) {
+	std::cout << x << '\n';
+}
 
 // keep template instance declaration in header file
 // to prevent .o file bloat

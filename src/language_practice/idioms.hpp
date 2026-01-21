@@ -3,12 +3,12 @@
 
 class FooRaii {
  public:
-  FooRaii() {
-    // Acquire resource
-  }
-  ~FooRaii() {
-    // Release resource
-  }
+	FooRaii() {
+		// Acquire resource
+	}
+	~FooRaii() {
+		// Release resource
+	}
 };
 
 // PIMPL
@@ -20,7 +20,7 @@ class FooRaii {
 class FooImpl;
 
 class Foo {
-  FooImpl* fp;
+	FooImpl* fp;
 };
 
 class FooImpl {};
@@ -34,13 +34,13 @@ class FooImpl {};
 // // - std::unique_ptr, std::shared_ptr, std::weak_ptr
 template <typename T>
 class Ptr {
-  T* p;
+	T* p;
 
  public:
-  Ptr(T* ptr) : p(ptr) {}
-  T& operator*() { return *p; }
-  T* operator->() { return p; }
-  // other member functions...
+	Ptr(T* ptr) : p(ptr) {}
+	T& operator*() { return *p; }
+	T* operator->() { return p; }
+	// other member functions...
 };
 
 // CRTP
