@@ -15,3 +15,5 @@ using boost::asio::ip::tcp;
 using json = nlohmann::json;
 
 int asio_test();
+
+int socket_listener();
