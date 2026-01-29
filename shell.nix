@@ -1,8 +1,8 @@
-{
-  pkgs ? import <nixpkgs> { },
+{ pkgs ? import <nixpkgs> { }
+,
 }:
 
-pkgs.mkShell {
+pkgs.mkShell.override { stdenv = pkgs.gccStdenv; } {
   buildInputs = with pkgs; [
     cmake
     pkg-config

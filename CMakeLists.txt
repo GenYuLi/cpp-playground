@@ -45,7 +45,7 @@ set(JSON_BuildTests
     CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(json)
 
-find_package(Boost 1.74.0 REQUIRED COMPONENTS system)
+find_package(Boost 1.74.0 REQUIRED CONFIG COMPONENTS system)
 
 find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
 message(STATUS "Found Python3: ${Python3_EXECUTABLE}")
@@ -55,7 +55,7 @@ message(STATUS "Python3 Install Path: ${Python3_SITEARCH}")
 FetchContent_Declare(
   pybind11
   GIT_REPOSITORY https://github.com/pybind/pybind11.git
-  GIT_TAG v2.11.1)
+  GIT_TAG v2.13.6)
 FetchContent_MakeAvailable(pybind11)
 
 # --- 建立函式庫和 header files link ---
@@ -130,6 +130,7 @@ if(pybind11_FOUND)
     orderbook_py
     PRIVATE
     orderbook_lib
+    pg_lib
     fmt::fmt
   )
 
