@@ -47,17 +47,6 @@ FetchContent_MakeAvailable(json)
 
 find_package(Boost 1.74.0 REQUIRED CONFIG COMPONENTS system)
 
-find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
-message(STATUS "Found Python3: ${Python3_EXECUTABLE}")
-message(STATUS "Python3 Install Path: ${Python3_SITEARCH}")
-
-# pybind11 for Python bindings
-FetchContent_Declare(
-  pybind11
-  GIT_REPOSITORY https://github.com/pybind/pybind11.git
-  GIT_TAG v2.13.6)
-FetchContent_MakeAvailable(pybind11)
-
 # --- 建立函式庫和 header files link ---
 
 file(GLOB_RECURSE PG_LIB_SOURCE_FILES CONFIGURE_DEPENDS src/asio_test/*.cpp
@@ -109,37 +98,6 @@ target_link_libraries(
 # Ensure C++20 for coroutines
 target_compile_features(matching_engine_lib INTERFACE cxx_std_20)
 
-# --- OrderBook Library (Header-Only) ---
-# OrderBook is header-only, so we create an interface library
-add_library(orderbook_lib INTERFACE)
-
-target_include_directories(
-  orderbook_lib
-  INTERFACE
-  ${CMAKE_CURRENT_SOURCE_DIR}/src
-)
-
-# OrderBook requires C++20 for concepts, coroutines, std::span, etc.
-target_compile_features(orderbook_lib INTERFACE cxx_std_20)
-
-# --- Python Bindings (pybind11 module) ---
-if(pybind11_FOUND)
-  pybind11_add_module(orderbook_py src/orderbook_py/bindings.cpp)
-
-  target_link_libraries(
-    orderbook_py
-    PRIVATE
-    orderbook_lib
-    pg_lib
-    fmt::fmt
-  )
-
-  # Ensure C++20 for the Python module
-  target_compile_features(orderbook_py PRIVATE cxx_std_20)
-
-  message(STATUS "Python bindings enabled: orderbook_py module will be built")
-endif()
-
 # --- 建立執行檔與連結函式庫 ---
 file(GLOB BIN_FILES src/bin/*.cpp)
 
@@ -161,11 +119,6 @@ foreach(bin IN LISTS BINARYS)
   # Link matching engine for coroutine tests
   if(${bin} STREQUAL "coro_matching_test")
     target_link_libraries(${bin} PRIVATE matching_engine_lib)
-  endif()
-
-  # Link orderbook for orderbook tests
-  if(${bin} STREQUAL "orderbook_test")
-    target_link_libraries(${bin} PRIVATE orderbook_lib)
   endif()
 endforeach()
 

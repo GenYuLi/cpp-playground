@@ -5,6 +5,7 @@
 /cmake_install.cmake
 /.cache
 /_deps/
+/.direnv/
 *.egg-info/
 __pycache__/
 *.so
