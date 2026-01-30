@@ -27,24 +27,9 @@ message(STATUS "Using C++ Standard: ${CMAKE_CXX_STANDARD}")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # --- 函式庫相依管理 ---
-# 引入 FetchContent 模組 (用它來下載 fmt 和 json)
-include(FetchContent)
 
-FetchContent_Declare(
-  fmt
-  GIT_REPOSITORY https://github.com/fmtlib/fmt.git
-  GIT_TAG 10.2.1)
-FetchContent_MakeAvailable(fmt)
-
-FetchContent_Declare(
-  json
-  GIT_REPOSITORY https://github.com/nlohmann/json.git
-  GIT_TAG v3.11.3)
-set(JSON_BuildTests
-    OFF
-    CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(json)
-
+find_package(fmt CONFIG)
+find_package(nlohmann_json CONFIG)
 find_package(Boost 1.74.0 REQUIRED CONFIG COMPONENTS system)
 
 # --- 建立函式庫和 header files link ---
@@ -61,7 +46,7 @@ file(
   src/language_practice/*.hpp
   src/language_practice/*.h)
 
-add_library(pg_lib ${PG_LIB_SOURCE_FILES})
+add_library(pg_lib SHARED ${PG_LIB_SOURCE_FILES})
 
 target_sources(pg_lib PRIVATE ${PG_LIB_HEADER_FILES})
 

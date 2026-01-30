@@ -1,3 +1,5 @@
+#include <iostream>
+
 // RAII
 // - Resource Acquisition Is Initialization
 
@@ -49,8 +51,19 @@ class Ptr {
 // - Base class template takes derived class as template parameter
 // - Removes virtual function overhead
 // - Used for mixins, static interfaces, etc.
+// Note: CRTP should not be used with virtual destructors,
+// if you need a container of polymorphic objects(Heterogeneous Container), use
+// 1. traditional inheritance with virtual destructors
+// 2. variant types
+// 3. type erasure techniques
 
 template <typename T>
-class B {};
+class B {
+ public:
+	// ~B() { std::cout << "base\n"; }
+};
 
-class D : public B<D> {};
+class D : public B<D> {
+ public:
+	// ~D() { std::cout << "derived\n"; }
+};
