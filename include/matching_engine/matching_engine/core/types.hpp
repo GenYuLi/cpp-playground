@@ -4,6 +4,7 @@
 #include <compare>
 #include <cstdint>
 #include <optional>
+#include <map>
 
 namespace matching_engine {
 

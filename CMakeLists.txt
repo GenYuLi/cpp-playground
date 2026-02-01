@@ -34,27 +34,42 @@ find_package(Boost 1.74.0 REQUIRED CONFIG COMPONENTS system)
 
 # --- 建立函式庫和 header files link ---
 
-file(GLOB_RECURSE PG_LIB_SOURCE_FILES CONFIGURE_DEPENDS src/asio_test/*.cpp
-     src/language_practice/*.cpp)
+file(GLOB_RECURSE PG_LIB_SOURCE_FILES CONFIGURE_DEPENDS src/pg/asio_test/*.cpp
+     src/pg/language_practice/*.cpp)
 
 file(
   GLOB_RECURSE
-  PG_LIB_HEADER_FILES
+  PG_LIB_PUBLIC_HEADER_FILES
   CONFIGURE_DEPENDS
-  src/asio_test/*.hpp
-  src/asio_test/*.h
-  src/language_practice/*.hpp
-  src/language_practice/*.h)
+  include/pg/*.hpp
+  include/pg/*.h
+  include/pg/**/*.hpp
+  include/pg/**/*.h)
+
+file(
+  GLOB_RECURSE
+  PG_LIB_PRIVATE_HEADER_FILES
+  CONFIGURE_DEPENDS
+  src/pg/asio_test/*.hpp
+  src/pg/asio_test/*.h
+  src/pg/language_practice/*.hpp
+  src/pg/language_practice/*.h)
 
 add_library(pg_lib SHARED ${PG_LIB_SOURCE_FILES})
 
-target_sources(pg_lib PRIVATE ${PG_LIB_HEADER_FILES})
+target_sources(pg_lib
+  PRIVATE ${PG_LIB_PRIVATE_HEADER_FILES}
+  PUBLIC ${PG_LIB_PUBLIC_HEADER_FILES}
+)
+
 
 target_include_directories(
   pg_lib
-  PUBLIC # PUBLIC=自己也要、link 進來的人也要
-         ${CMAKE_CURRENT_SOURCE_DIR}/src/asio_test
-         ${CMAKE_CURRENT_SOURCE_DIR}/src/language_practice)
+  PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+  PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
 
 target_link_libraries(
   pg_lib
@@ -71,7 +86,7 @@ add_library(matching_engine_lib INTERFACE)
 target_include_directories(
   matching_engine_lib
   INTERFACE
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/matching_engine
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/matching_engine
 )
 
 target_link_libraries(
@@ -93,9 +108,6 @@ foreach(src ${BIN_FILES})
 endforeach()
 
 foreach(bin IN LISTS BINARYS)
-  target_include_directories(
-    ${bin} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/language_practice
-                   ${CMAKE_CURRENT_SOURCE_DIR}/src/asio_test)
   # 設定每個執行檔的 C++ 標準
   target_compile_features(${bin} PRIVATE cxx_std_${CMAKE_CXX_STANDARD})
   # 將函式庫連結到我們的執行檔

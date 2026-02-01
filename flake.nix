@@ -9,9 +9,11 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
+
+        stdenv = pkgs.gccStdenv;
       in
       {
-        devShells.default = pkgs.mkShell
+        devShells.default = pkgs.mkShell.override { inherit stdenv; }
           {
             nativeBuildInputs = with pkgs; [
               cmake
@@ -24,13 +26,13 @@
               boost
               fmt
               nlohmann_json
-            ] ++ (pkgs.lib.optionals pkgs.stdenv.isDarwin [
-              pkgs.libiconv
-              pkgs.darwin.apple_sdk.frameworks.CoreFoundation
-            ]);
+            ];
 
             shellHook = ''
               export CMAKE_EXPORT_COMPILE_COMMANDS=1
+              export CC=gcc
+              export CXX=g++
+              export CPATH="$CPATH"
             '';
           };
       });
