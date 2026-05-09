@@ -1,13 +1,23 @@
-/build/
-/CMakeFiles/
-/CMakeCache.txt
-/Makefile
-/cmake_install.cmake
-/.cache
-/_deps/
-/.direnv/
+# --- CMake build artifacts (recursive — protects against accidental in-source builds) ---
+build/
+CMakeFiles/
+CMakeCache.txt
+CMakeConfigureLog.yaml
+cmake_install.cmake
+Makefile
+compile_commands.json
+_deps/
+
+# --- Editor / env ---
+.direnv/
+.cache/
+.claude/settings.local.json
+
+# --- Python (if anything pulls in pybind etc.) ---
 *.egg-info/
 __pycache__/
-*.so
+.python-version
+
+# --- Dist / shared objects ---
 dist/
-build/
+*.so
