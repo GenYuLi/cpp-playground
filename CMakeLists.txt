@@ -45,6 +45,18 @@ set(JSON_BuildTests
     CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(json)
 
+# doctest 只需要一個 header；用 SOURCE_SUBDIR 指向不存在的目錄，讓 FetchContent
+# 只下載原始碼、不去跑它過舊的 CMakeLists (會被新版 CMake 拒絕)。我們自己建 target。
+FetchContent_Declare(
+  doctest
+  GIT_REPOSITORY https://github.com/doctest/doctest.git
+  GIT_TAG v2.4.11
+  SOURCE_SUBDIR do-not-build)
+FetchContent_MakeAvailable(doctest)
+
+add_library(doctest_header INTERFACE)
+target_include_directories(doctest_header INTERFACE ${doctest_SOURCE_DIR})
+
 find_package(Boost 1.74.0 REQUIRED CONFIG COMPONENTS system)
 
 # --- 建立函式庫和 header files link ---
@@ -97,6 +109,28 @@ target_link_libraries(
 
 # Ensure C++20 for coroutines
 target_compile_features(matching_engine_lib INTERFACE cxx_std_20)
+
+# --- Data Structure Playground (Header-Only) ---
+# ds/ 是 header-only 的資料結構練習場，對應 rust 的 src/ds/。
+# 每個結構一個資料夾 (tree/, graph/, ...)，src/ds/ds.hpp 是 umbrella header。
+add_library(ds_lib INTERFACE)
+
+target_include_directories(ds_lib INTERFACE
+                           ${CMAKE_CURRENT_SOURCE_DIR}/src/ds)
+
+target_compile_features(ds_lib INTERFACE cxx_std_${CMAKE_CXX_STANDARD})
+
+# 把每個結構旁邊的 *_test.cpp 全部 GLOB 進一個 ds_tests 執行檔，
+# 用 doctest 提供的 main，掛上 ctest → `ctest` 就能一鍵全跑 (= cargo test)。
+enable_testing()
+
+file(GLOB_RECURSE DS_TEST_FILES CONFIGURE_DEPENDS src/ds/*_test.cpp)
+
+if(DS_TEST_FILES)
+  add_executable(ds_tests src/ds/ds_test_main.cpp ${DS_TEST_FILES})
+  target_link_libraries(ds_tests PRIVATE ds_lib doctest_header fmt::fmt)
+  add_test(NAME ds_tests COMMAND ds_tests)
+endif()
 
 # --- 建立執行檔與連結函式庫 ---
 file(GLOB BIN_FILES src/bin/*.cpp)
