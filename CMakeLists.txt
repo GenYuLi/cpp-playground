@@ -22,10 +22,14 @@ find_package(fmt CONFIG REQUIRED)
 find_package(nlohmann_json CONFIG REQUIRED)
 find_package(Boost 1.74.0 REQUIRED CONFIG COMPONENTS system)
 
+# --- Tests (enables ctest for any subproject that calls add_test) ---
+enable_testing()
+
 # --- Subprojects ---
 # Each subdirectory defines its own targets and exposes them by name.
 # Order matters only when one subdir consumes targets from another:
 #   bin/ links pg_lib and matching_engine_lib, so libraries come first.
 add_subdirectory(projects/matching_engine)
+add_subdirectory(projects/ds)
 add_subdirectory(pg)
 add_subdirectory(bin)

@@ -26,6 +26,7 @@
               boost
               fmt
               nlohmann_json
+              doctest
             ];
 
             shellHook = ''
