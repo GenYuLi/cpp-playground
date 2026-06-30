@@ -70,7 +70,7 @@ Fish MakeFish(T&& fd) {
 	return Fish{std::forward<T>(fd)};
 }
 
-enum class FishType : uint { shark, salmon };
+enum class FishType : unsigned int { shark, salmon };
 
 template <typename... Args>
 shared_ptr<Fish> MakeFishPtr(FishType type, Args&&... args) {

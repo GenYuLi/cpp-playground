@@ -46,3 +46,6 @@ target_compile_features(matching_engine_lib INTERFACE cxx_std_20)
 # target_link_libraries(coro_matching_test ...)
 add_executable(coro_matching_test tests/coro_matching_test.cpp)
 target_link_libraries(coro_matching_test PRIVATE matching_engine_lib)
+
+# Register with ctest (enable_testing() is called in the top-level CMakeLists).
+add_test(NAME coro_matching_test COMMAND coro_matching_test)
