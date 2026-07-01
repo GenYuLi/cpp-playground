@@ -4,6 +4,7 @@ CMakeFiles/
 CMakeCache.txt
 CMakeConfigureLog.yaml
 cmake_install.cmake
+CTestTestfile.cmake
 Makefile
 compile_commands.json
 _deps/
@@ -21,3 +22,5 @@ __pycache__/
 # --- Dist / shared objects ---
 dist/
 *.so
+*.dylib
+*.a
