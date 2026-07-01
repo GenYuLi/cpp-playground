@@ -19,13 +19,6 @@
               cmake
               ninja
               pkg-config
-            ] ++ lib.optionals stdenv.isLinux [
-              # nix clangd (from clang-tools) shadows `clangd` in the dev shell.
-              # On Linux that's fine — clang cleanly consumes gcc's libstdc++.
-              # On macOS the nix clangd injects a 2nd libc++ and can't parse
-              # gcc's libstdc++ (ldiv_t errors), so we DON'T ship it there and
-              # let the editor fall back to Apple's /usr/bin/clangd (single
-              # libc++), which is what the toolchain expects on Darwin.
               clang-tools
             ];
 

@@ -9,9 +9,9 @@
 # Notes:
 #   - Launch your editor from inside the dev shell (e.g. via direnv) so `g++`
 #     resolves to the nix toolchain, not /usr/bin/g++ (Apple Clang).
-#   - macOS: the nix `clang-tools` clangd injects a second libc++ and cannot
-#     parse gcc's libstdc++ cleanly (ldiv_t errors). The flake therefore ships
-#     clang-tools on Linux only, so on macOS `clangd` falls back to Apple's
-#     /usr/bin/clangd (single libc++) automatically — no editor config needed.
+#   - macOS: the nix clangd (via clang-tools in the dev shell) analyzes with
+#     gcc's libstdc++ here too — the global dotfiles clangd config adds
+#     `-D__float128=long double` on Darwin so Apple/LLVM clang can parse GCC
+#     14+'s max_align_t. Real g++ builds are unaffected.
 CompileFlags:
   Compiler: g++
