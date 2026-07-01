@@ -9,9 +9,9 @@
 # Notes:
 #   - Launch your editor from inside the dev shell (e.g. via direnv) so `g++`
 #     resolves to the nix toolchain, not /usr/bin/g++ (Apple Clang).
-#   - macOS caveat: the nix `clang-tools` clangd injects a second libc++ and
-#     cannot cleanly parse gcc's libstdc++ — on macOS point your editor at
-#     Apple's clangd (/usr/bin/clangd). This file does not control which clangd
-#     binary runs; that lives in your editor's LSP config.
+#   - macOS: the nix `clang-tools` clangd injects a second libc++ and cannot
+#     parse gcc's libstdc++ cleanly (ldiv_t errors). The flake therefore ships
+#     clang-tools on Linux only, so on macOS `clangd` falls back to Apple's
+#     /usr/bin/clangd (single libc++) automatically — no editor config needed.
 CompileFlags:
   Compiler: g++
